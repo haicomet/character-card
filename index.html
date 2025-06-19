@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Functional Friends</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Functional Friends</h1>
+
+  <form id="char-form">
+    <input type="text" id="name" placeholder="Name" required />
+    <select id="class">
+      <option value="Mage">Mage</option>
+      <option value="Warrior">Warrior</option>
+      <option value="Rogue">Rogue</option>
+    </select>
+    <input type="number" id="stat" placeholder="Stat (1-100)" required />
+    <button type="submit">Add Character</button>
+  </form>
+
+  <div>
+    <input type="text" id="search" placeholder="Search by name..." />
+    <select id="filter-class">
+      <option value="All">All</option>
+      <option value="Mage">Mage</option>
+      <option value="Warrior">Warrior</option>
+      <option value="Rogue">Rogue</option>
+    </select>
+  </div>
+
+  <section id="cards-container"></section>
+
+  <div id="stats-summary"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
