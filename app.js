@@ -37,9 +37,26 @@ function render(){
         const card = document.createElement("div")
         card.innerHTML = `${c.name} - ${c.class} - ${c.stat}`
         card.className = c.class
+
         cards.appendChild(card)
 
+        const delBtn = document.createElement("button")
+        delBtn.textContent = "Delete Character"
+        delBtn.addEventListener("click", (e)=> {
+            e.stopPropagation()
+            const index = characters.indexOf(c)
+            characters.splice(index,1)
+            render()
+        })
+        card.appendChild(delBtn)
+        card.addEventListener("click", ()=>{
+            let details = ""
+            for (const [key, value] of Object.entries(c))
+                details += (`${key} : ${value}`)
+            alert(details)
+        })
         }
+
     )
     if (filtered.length > 0){
         const total = filtered.reduce((acc,c) => acc + c.stat, 0)
@@ -51,3 +68,8 @@ function render(){
 
 search.addEventListener("input", render)
 filterClass.addEventListener("change", render)
+
+cards.addEventListener("click", ()=>{
+    for (const [key, value] of Object.entries(characters))
+        alert(`${key} : ${value}`)
+})
